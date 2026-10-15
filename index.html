@@ -8,38 +8,62 @@
     body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #1a1a1a; }
     h1 { font-size: 28px; }
     h2 { font-size: 20px; margin-top: 32px; }
-    a { color: #B87514; }
+    a { color: #8A5A12; }
     .updated { color: #666; font-size: 14px; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #f5f1e8; }
   </style>
 </head>
 <body>
   <h1>Política de Privacidad — Acrece</h1>
-  <p class="updated">Última actualización: septiembre de 2026</p>
+  <p class="updated">Última actualización: octubre de 2026</p>
 
-  <h2>1. Introducción</h2>
-  <p>Acrece es una aplicación de gestión de alquileres e inversión inmobiliaria diseñada bajo un principio de <strong>local-first</strong>: tus datos financieros, contratos e información de inmuebles se almacenan <strong>únicamente en tu dispositivo</strong> y no se transmiten a nuestros servidores.</p>
+  <h2>1. Quién es el responsable</h2>
+  <p>Acrece es una aplicación de Yieldly Labs (contacto en el apartado 10). Está diseñada bajo un principio <strong>local-first</strong>: los datos que introduces se almacenan en tu dispositivo y no se envían a servidores nuestros. No hay cuentas de usuario ni registro.</p>
 
-  <h2>2. Datos que tratamos</h2>
-  <p>La aplicación no requiere registro ni recopila datos personales de forma automática. Los datos que introduzcas (nombre, NIF/CIF, IBAN, dirección, datos de inmuebles, inquilinos, transacciones) se guardan exclusivamente en tu dispositivo, cifrados con AES-256 (SQLCipher).</p>
+  <h2>2. Datos que tratas con la aplicación</h2>
+  <p>Los datos que introduces (nombre, NIF/CIF, IBAN, dirección y teléfono del propietario; datos de inmuebles; nombre, teléfono, correo, NIF y dirección de inquilinos; transacciones, documentos e incidencias) se guardan <strong>solo en tu dispositivo</strong>. La base de datos está cifrada con AES-256 (SQLCipher) y los datos del perfil se guardan en el almacenamiento seguro del sistema (Android Keystore).</p>
+  <p>Si registras datos de terceros (por ejemplo, inquilinos), eres tú quien decide su finalidad y quien debe contar con una base legítima para tratarlos. Acrece no accede a ellos ni los comunica.</p>
 
-  <h2>3. Servicios de terceros</h2>
-  <p>Acrece utiliza servicios externos únicamente para funciones opcionales que tú activas:</p>
+  <h2>3. Permisos y acceso a datos del dispositivo</h2>
+  <table>
+    <tr><th>Función</th><th>Qué se usa</th><th>Cuándo</th></tr>
+    <tr><td>Contactos</td><td>Lectura del contacto que elijas (nombre y teléfono) para rellenar un inquilino o el gestor. No se modifica ni se envía.</td><td>Solo al pulsar “importar de contactos”.</td></tr>
+    <tr><td>Cámara y galería</td><td>La foto que elijas para una propiedad o documento. Se guarda en tu dispositivo.</td><td>Solo al elegir una imagen.</td></tr>
+    <tr><td>Huella / PIN</td><td>Desbloqueo local con el sistema del dispositivo. Acrece no recibe tus datos biométricos.</td><td>Si activas el bloqueo.</td></tr>
+    <tr><td>Archivos</td><td>Documentos que adjuntes a una propiedad.</td><td>Solo al adjuntar.</td></tr>
+  </table>
+
+  <h2>4. Servicios de terceros (opcionales)</h2>
   <ul>
-    <li><strong>Google Drive</strong>: para la copia de seguridad que tú decidas subir. La app solo accede a los archivos que ella misma crea (ámbito <code>drive.file</code>).</li>
-    <li><strong>Google Sign-In</strong>: para rellenar automáticamente tu nombre y correo en tu perfil, si lo solicitas.</li>
-    <li><strong>RevenueCat</strong>: para gestionar la suscripción PRO y los pagos in-app. RevenueCat procesa datos de la transacción de compra, no tus datos financieros.</li>
+    <li><strong>Google Drive</strong>: si eliges crear una copia de seguridad, el archivo se <strong>cifra en tu dispositivo con una contraseña que solo tú conoces</strong> y se sube a tu propio Google Drive. La app solo accede a los archivos que ella misma crea (ámbito <code>drive.file</code>). Yieldly Labs no recibe ni puede descifrar la copia, y no puede recuperar la contraseña si la pierdes.</li>
+    <li><strong>Google Sign-In</strong>: para iniciar sesión en Drive y, si lo pides, rellenar tu nombre y correo en el perfil. Esos datos se quedan en tu dispositivo.</li>
+    <li><strong>RevenueCat</strong>: gestiona la suscripción PRO. Recibe un identificador anónimo de la instalación y los datos de la compra. No recibe tus datos de propiedades, inquilinos ni finanzas. Puede tratar estos datos en servidores fuera del Espacio Económico Europeo bajo las garantías que RevenueCat y Google indican en sus políticas.</li>
+    <li><strong>Google Play</strong>: procesa los pagos y la distribución de la app según su propia política.</li>
+    <li><strong>Catastro</strong> (opcional): al consultar una referencia catastral, esta se envía al servicio público de la Dirección General del Catastro para obtener los datos del inmueble.</li>
   </ul>
+  <p>Acrece no incluye publicidad ni herramientas de analítica de comportamiento.</p>
 
-  <h2>4. Seguridad</h2>
-  <p>La base de datos local está cifrada con AES-256 mediante una clave aleatoria de 32 bytes almacenada en el almacenamiento seguro del sistema (Android Keystore / Keychain). No tenemos acceso a tus datos.</p>
+  <h2>Diagnóstico de errores</h2>
+  <p>Para detectar y corregir fallos, Acrece puede enviar <strong>informes de error anónimos</strong> a Sentry cuando la aplicación se cierra de forma inesperada o falla una operación crítica (por ejemplo, una copia de seguridad). Estos informes contienen el tipo de error, la traza técnica, la versión de la app y datos básicos del dispositivo (modelo y versión de Android). <strong>No incluyen</strong> tus propiedades, inquilinos, importes, documentos, capturas de pantalla ni tu identidad, y no se recopilan rutas de navegación.</p>
 
-  <h2>5. Conservación y eliminación</h2>
-  <p>Tus datos residen en tu dispositivo. Puedes eliminarlos en cualquier momento desde Ajustes → "Eliminar todos mis datos". Al desinstalar la aplicación se eliminan también los datos locales.</p>
+  <h2>5. Índices de actualización de renta</h2>
+  <p>Los índices IPC e IRAV los introduces tú. La aplicación no los consulta ni garantiza su exactitud: confírmalos con la fuente oficial (INE). Los cálculos son una ayuda y no constituyen asesoramiento legal ni fiscal.</p>
 
-  <h2>6. Derechos</h2>
-  <p>De acuerdo con el RGPD, tienes derecho de acceso, rectificación, supresión, portabilidad y oposición. Dado que no almacenamos tus datos en servidores, puedes ejercerlos directamente desde la propia aplicación.</p>
+  <h2>6. Seguridad</h2>
+  <p>La clave de cifrado de la base de datos es aleatoria (32 bytes) y se guarda en el almacenamiento seguro del sistema. Las copias en Drive se cifran con AES-256-GCM y una clave derivada de tu contraseña. No tenemos acceso a tus datos.</p>
 
-  <h2>7. Contacto</h2>
-  <p>Para cualquier consulta sobre esta política o sobre el tratamiento de datos, puedes escribir a: <a href="mailto:yieldly.labs@gmail.com">yieldly.labs@gmail.com</a></p>
+  <h2>7. Conservación y eliminación</h2>
+  <p>Tus datos residen en tu dispositivo. Puedes eliminarlos desde Ajustes → “Eliminar todos mis datos”. Al desinstalar la aplicación se eliminan los datos locales. Las copias de seguridad que hayas subido a tu Google Drive las gestionas tú y puedes borrarlas desde Drive.</p>
+
+  <h2>8. Tus derechos</h2>
+  <p>De acuerdo con el RGPD tienes derecho de acceso, rectificación, supresión, portabilidad, limitación y oposición. Como no almacenamos tus datos en servidores, puedes ejercerlos directamente desde la propia aplicación (editar, exportar a Excel o eliminar). Para los datos que traten Google o RevenueCat, puedes dirigirte a ellos. También puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es">aepd.es</a>).</p>
+
+  <h2>9. Menores y cambios</h2>
+  <p>Acrece no está dirigida a menores de 16 años. Si modificamos esta política, actualizaremos la fecha de este documento y, si el cambio es relevante, lo avisaremos en la aplicación.</p>
+
+  <h2>10. Contacto</h2>
+  <p>Para cualquier consulta sobre esta política o sobre el tratamiento de datos: <a href="mailto:yieldly.labs@gmail.com">yieldly.labs@gmail.com</a></p>
 </body>
 </html>
